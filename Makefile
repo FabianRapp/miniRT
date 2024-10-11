@@ -11,7 +11,7 @@ REFLECTIONS = 3
 REFLECTION_FLAG = "-DREFLECTION_COUNT=$(REFLECTIONS)"
 SHADOWS_FLAG := -D$(SHADOWS)_SHADOWS
 CFLAGS_DEBUG := -Wall -Wextra -DFSAN $(SHADOWS_FLAG) -fsanitize=address -g -O0 $(AMBIENT_FLAG) $(REFLECTION_FLAG) $(CAMERA_FLAG)
-FLAGS_SPEED := -Wall -Wextra -g -Ofast -march=native -DNDBUG=1 $(SHADOWS_FLAG) $(AMBIENT_FLAG) $(REFLECTION_FLAG) $(CAMERA_FLAG)
+FLAGS_SPEED := -Wall -Wextra -g -Ofast -march=native -DNDEBUG=1 $(SHADOWS_FLAG) $(AMBIENT_FLAG) $(REFLECTION_FLAG) $(CAMERA_FLAG)
 CFLAGS := $(FLAGS_SPEED)
 #-Werror
 #-O3
@@ -105,9 +105,7 @@ SRC_FILES_MATH := \
 	ft_math/colors/init_colors.c \
 	ft_math/tuple/tuple1.c \
 	ft_math/tuple/tuple2.c \
-	ft_math/tuple/tuple2_debug.c \
 	ft_math/tuple/tuple3.c \
-	ft_math/tuple/tuple3_debug.c \
 	ft_math/tuple/tuple4.c \
 	ft_math/tuple/tuple_tests1.c \
 	ft_math/tuple/tuple_tests2.c \

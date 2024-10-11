@@ -19,6 +19,14 @@ typedef union u_tuple
 typedef t_tuple	t_vec;
 typedef t_tuple	t_point;
 
+# ifndef IS_VEC
+#  define IS_VEC(tuple) (EQ_F(tuple.w, 0.0))
+# endif//IS_VEC
+
+# ifndef IS_POINT
+#  define IS_POINT(tuple) (EQ_F(tuple.w, 0.0))
+# endif //IS_POINT
+
 // for vecs w == 0
 bool	is_vec(t_tuple tuple);
 // for points w == 1

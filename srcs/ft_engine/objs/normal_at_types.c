@@ -25,8 +25,7 @@ t_vec	compute_normal_cylinder(t_cylinder *cylinder, t_point object_point)
 {
 	double	distance;
 
-	ft_assert(cylinder->base_obj.type == OBJ_CYLINDER, \
-		__FILE__, __LINE__, "wtf");
+	FT_ASSERT(cylinder->base_obj.type == OBJ_CYLINDER);
 	distance = (object_point.x * object_point.x) + (object_point.z
 			* object_point.z);
 	if (distance < 1 && object_point.y >= cylinder->max - (EPSILON))

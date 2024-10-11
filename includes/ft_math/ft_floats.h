@@ -11,6 +11,10 @@
 #  define EPSILON 0.0001
 # endif
 
+# ifndef EQ_F
+#  define EQ_F(a, b) (fabs((a) - (b)) <= (EPSILON))
+# endif // EQ_F
+
 //equal double
 //(a == b) ?
 bool	eq_f(double a, double b);

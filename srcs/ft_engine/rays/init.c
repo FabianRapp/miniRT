@@ -2,35 +2,18 @@
 #include <main.h>
 #include <libft.h>
 
-#ifdef NDBUG
-
 t_ray	eng_new_ray(t_point origin, t_vec direct)
 {
 	t_ray	ray;
 
+	FT_ASSERT(IS_POINT(direct));
+	FT_ASSERT(IS_POINT(direct));
 	ray.base_obj = eng_new_obj();
 	ray.base_obj.type = OBJ_RAY;
 	ray.origin = origin;
 	ray.direct = direct;
 	return (ray);
 }
-#else
-
-t_ray	eng_new_ray(t_point origin, t_vec direct)
-{
-	t_ray	ray;
-
-	ft_assert(is_point(origin), __FILE__, __LINE__, "Error: eng_new_ray: \
-			origin is not a point");
-	ft_assert(is_vec(direct), __FILE__, __LINE__, "Error: eng_new_ray: \
-			direct is not a vec");
-	ray.base_obj = eng_new_obj();
-	ray.base_obj.type = OBJ_RAY;
-	ray.origin = origin;
-	ray.direct = direct;
-	return (ray);
-}
-#endif //NDBUG
 
 t_obj	eng_new_obj(void)
 {

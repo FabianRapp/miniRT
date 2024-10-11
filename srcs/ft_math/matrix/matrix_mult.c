@@ -25,8 +25,6 @@ static inline double	kahan_sum_inline(double *nbs, size_t count)
 	return (sum);
 }
 
-#ifndef NDBUG
-
 // using kahan sum to reduce floating point addition errors
 t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 {
@@ -35,9 +33,7 @@ t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 	int		i;
 	int		j;
 
-	ft_bzero(&res, sizeof(res));
-	ft_assert(m.type == MAT4X4, __FILE__, __LINE__,
-		"mult_mt: given matrix is not 4x4");
+	FT_ASSERT(m.type == MAT4X4);
 	i = 0;
 	while (i < 4)
 	{
@@ -52,31 +48,6 @@ t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
 	}
 	return (res);
 }
-#else
-// using kahan sum to reduce floating point addition errors
-t_tuple	mtx_mult_mt(t_matrix m, t_tuple tup)
-{
-	t_tuple	res;
-	double	tmp[4] __attribute((aligned(16)));
-	uint8_t	j;
-	uint8_t	i;
-
-	i = 0;
-	while (i < 4)
-	{
-		j = 0;
-		while (j < 4)
-		{
-			tmp[j] = m.m[i][j] * tup.arr[j];
-			j++;
-		}
-		res.arr[i] = kahan_sum_inline(tmp, 4);
-		i++;
-	}
-	return (res);
-}
-
-#endif //n NDBUG
 
 t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb)
 {
@@ -86,8 +57,7 @@ t_matrix	mtx_mult_mm(t_matrix ma, t_matrix mb)
 	int			k;
 	double		tmp[4];
 
-	ft_assert(ma.type == MAT4X4 && mb.type == MAT4X4, __FILE__, __LINE__,
-		"Error: matrix multiplication_mm of wrong matrix type");
+	FT_ASSERT(ma.type == MAT4X4 && mb.type == MAT4X4);
 	ret.type = MAT4X4;
 	i = -1;
 	while (++i < 4)

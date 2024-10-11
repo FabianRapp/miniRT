@@ -10,8 +10,7 @@ t_matrix	mtx_inverse(t_matrix m)
 	int			col;
 	double		det;
 
-	ft_assert(!eq_f(mtx_det(m), 0.0), __FILE__, __LINE__, "Error: matrix\
-			given to mtx_inverse() is not invertable (det == 0)");
+	FT_ASSERT(!EQ_F(mtx_det(m), 0.0));
 	det = mtx_det(m);
 	row = 0;
 	while (row < (int)m.type)

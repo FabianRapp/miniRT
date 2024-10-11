@@ -67,8 +67,7 @@ double	mtx_det(t_matrix m)
 				* (double)m.m[1][0]);
 	else
 	{
-		ft_assert(m.type == MAT4X4 || m.type == MAT3X3, __FILE__, __LINE__,
-			"error: mtx_det: invalid matrix type");
+		FT_ASSERT(m.type == MAT4X4 || m.type == MAT3X3);
 		while (++i < (int)m.type)
 			tmp[i] = m.m[0][i] * mtx_cofactor(m, 0, i);
 		result = kahan_sum(tmp, (size_t)m.type);

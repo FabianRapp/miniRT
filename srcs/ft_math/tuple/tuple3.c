@@ -2,8 +2,6 @@
 #include <ft_tuple.h>
 #include <libft.h>
 
-#ifdef NDBUG
-
 double	len_v(t_vec v)
 {
 	return (sqrtf(v.x * v.x + v.y * v.y + v.z * v.z + v.w * v.w));
@@ -32,4 +30,3 @@ t_vec	cross_prod(t_vec a, t_vec b)
 			a.z * b.x - a.x * b.z,
 			a.x * b.y - a.y * b.x));
 }
-#endif //NDBUG

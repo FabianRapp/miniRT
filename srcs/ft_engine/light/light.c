@@ -41,10 +41,8 @@ static void	in_light_case(t_lighting_norm *n, t_light light, t_computation comp)
 t_fcolor	eng_lighting(t_computation comp, t_light light, bool in_shadow)
 {
 	t_lighting_norm	n;
-	t_fcolor		check;
 
 	init_lighting_norm_strukt(&n);
-	check = mult_fcolor(comp.color_at, light.intensity);
 	n.effective_color = mult_fcolor(comp.color_at, light.intensity);
 	n.light_direction = sub_t(light.origin, comp.over_point);
 	n.lightv = norm(new_vec(n.light_direction.x, n.light_direction.y, \

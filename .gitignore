@@ -1,6 +1,7 @@
 .ALL.h
 fabi_notes.txt
 .cache
+includes/libft_macros.h
 a
 b
 c

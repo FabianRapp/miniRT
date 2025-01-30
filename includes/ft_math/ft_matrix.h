@@ -3,6 +3,7 @@
 
 # include <stdbool.h>
 # include <ft_tuple.h>
+# include <libft_macros.h>
 
 typedef int	t_fd;
 

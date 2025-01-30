@@ -3,6 +3,7 @@
 
 // for allowed functions
 # include <stdio.h>
+# include "libft_macros.h"
 # include <unistd.h>
 # include <fcntl.h>
 # include <errno.h>

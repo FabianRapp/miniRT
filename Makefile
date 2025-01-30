@@ -262,7 +262,7 @@ clone_mlx:
 	fi
 
 $(LIBFT): $(LIBFT_DIR)
-	@cd libft && make CFLAGS="$(CFLAGS)"
+	@cd libft && git checkout 4f07ccf && cp libft_macros.h ../includes/ && git checkout 066eda7 && make CFLAGS="$(CFLAGS)"
 
 $(LIBFT_DIR):
 	@if [ "$(USER)" = "frapp" ] || [ "$(USER)" = "fabi" ] ; then \

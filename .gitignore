@@ -1,3 +1,5 @@
+
+compile_commands.json
 .ALL.h
 fabi_notes.txt
 .cache
@@ -54,6 +56,7 @@ test.ppm
 *.su
 *.idb
 *.pdb
+
 
 # Kernel Module Compile Results
 *.mod*

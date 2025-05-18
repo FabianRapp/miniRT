@@ -1,7 +1,8 @@
 NAME := miniRT
 CC := cc
 #when running 'make' add "SHADOWS=HARD" for hard shadows
-SHADOWS := HARD
+#SHADOWS := HARD
+SHADOWS := SMOOTH
 #when running 'make' add "AMBIENT=CUSTOM" for diffrent ambient light
 AMBIENT := 42
 CAMERA := 42
@@ -195,9 +196,11 @@ YELLOW	=	\033[33m
 CYAN	=	\033[0;36m
 CLEAR	=	\033[0m
 
-.PHONY: clone_mlx42 all clean fclean ffclean test redebug print_vars
+.PHONY: help clone_mlx42 all clean fclean ffclean test redebug print_vars
 
 all: $(NAME)
+
+help: print_vars
 
 $(NAME): print_vars mlx $(LIBFT) $(OBJECTS)
 	@$(CC) $(CFLAGS) $(INCLUDES) $(OBJECTS) $(LIBFT) -o $(NAME) $(MLX_FLAGS) $(CFLAGS)
